@@ -1,12 +1,20 @@
 package com.gimenes.neutronstargb.hardware.cpu;
 
+import com.gimenes.neutronstargb.hardware.memory.ROM;
+
 public class CPU {
-    private Registers registers = new Registers();
+    private final ROM bootRom;
+    private final Registers registers;
+    private final Stack stack;
 
-    public void go(int op, int data) {
+    public CPU() {
+        byte[] data = this.getClass().getClassLoader().getResourceAsStream("DMG_ROM.bin").readAllBytes();
+        bootRom = new ROM(data);
+        registers = new Registers();
+        stack = new Stack();
+    }
 
-        if (op == 0x06) {
-//            registers.setB((byte) data);
-        }
+    public void tick() {
+
     }
 }
