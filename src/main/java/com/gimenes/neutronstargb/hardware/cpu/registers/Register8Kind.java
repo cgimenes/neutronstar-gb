@@ -1,4 +1,4 @@
-package com.gimenes.neutronstargb.hardware.cpu;
+package com.gimenes.neutronstargb.hardware.cpu.registers;
 
 public enum Register8Kind {
     // high

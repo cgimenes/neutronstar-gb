@@ -1,5 +1,7 @@
 package com.gimenes.neutronstargb.hardware.cpu;
 
+import com.gimenes.neutronstargb.hardware.cpu.flags.Flags;
+import com.gimenes.neutronstargb.hardware.cpu.registers.Registers;
 import com.gimenes.neutronstargb.hardware.memory.ROM;
 import java.io.IOException;
 
@@ -7,17 +9,16 @@ public class CPU {
     private final ROM bootRom;
     private final Registers registers;
     private final Stack stack;
+    private final Flags flags;
 
     public CPU() {
         bootRom = getBootRom();
         registers = new Registers();
         stack = new Stack();
+        flags = new Flags();
     }
 
     public void tick() {
-        registers.get(Register16Kind.AF).setValue((short) 0x1234);
-        assert registers.get(Register8Kind.A).getValue() == 0x12;
-        assert registers.get(Register8Kind.F).getValue() == 0x34;
     }
 
     private ROM getBootRom() {
