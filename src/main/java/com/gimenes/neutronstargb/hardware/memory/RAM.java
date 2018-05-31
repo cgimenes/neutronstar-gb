@@ -1,7 +1,7 @@
 package com.gimenes.neutronstargb.hardware.memory;
 
 public class RAM extends ROM {
-    public RAM(int size) {
+    public RAM(byte size) {
         super(new byte[size]);
     }
 
