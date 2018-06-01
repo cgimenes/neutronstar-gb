@@ -1,6 +1,7 @@
 package com.gimenes.neutronstargb.hardware.cpu;
 
 import com.gimenes.neutronstargb.hardware.cpu.flags.Flags;
+import com.gimenes.neutronstargb.hardware.cpu.registers.Register16Kind;
 import com.gimenes.neutronstargb.hardware.cpu.registers.Registers;
 import com.gimenes.neutronstargb.hardware.memory.ROM;
 import java.io.IOException;

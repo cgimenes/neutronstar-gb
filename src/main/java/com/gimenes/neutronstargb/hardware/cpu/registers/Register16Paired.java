@@ -15,6 +15,6 @@ public class Register16Paired extends Register16 {
 
     public void set(short value) {
         high.set((byte) (value >> 8));
-        low.set((byte) (value << 8 >> 8));
+        low.set((byte) value);
     }
 }
