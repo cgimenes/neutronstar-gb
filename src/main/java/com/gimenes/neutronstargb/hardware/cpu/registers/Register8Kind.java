@@ -1,9 +1,15 @@
 package com.gimenes.neutronstargb.hardware.cpu.registers;
 
 public enum Register8Kind {
+    // accumulator
+    A,
+
     // high
-    A, B, D, H,
+    B, D, H,
+
+    // flags
+    F,
 
     // low
-    F, C, E, L
+    C, E, L
 }

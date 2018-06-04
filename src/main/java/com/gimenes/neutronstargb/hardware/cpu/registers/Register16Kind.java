@@ -3,7 +3,11 @@ package com.gimenes.neutronstargb.hardware.cpu.registers;
 import java.util.Arrays;
 
 public enum Register16Kind {
-    SP, PC,
+    // stack pointer
+    SP,
+
+    // program counter
+    PC,
 
     // paired
     AF, BC, DE, HL;

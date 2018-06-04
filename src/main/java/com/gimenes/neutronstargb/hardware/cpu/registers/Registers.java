@@ -1,11 +1,13 @@
 package com.gimenes.neutronstargb.hardware.cpu.registers;
 
+import com.gimenes.neutronstargb.hardware.cpu.flags.Flags;
 import java.util.EnumSet;
 import java.util.HashMap;
 
 public class Registers {
     private final HashMap<Register8Kind, Register8> registers8;
     private final HashMap<Register16Kind, Register16> registers16;
+    private final Flags flags;
 
     public Registers() {
         registers8 = new HashMap<>();
@@ -25,6 +27,13 @@ public class Registers {
 
         // initialize registers
         this.get(Register16Kind.PC).set((short) 0x100);
+
+        // flags
+        flags = new Flags(this.get(Register8Kind.F));
+    }
+
+    public Flags getFlags() {
+        return flags;
     }
 
     public Register8 get(Register8Kind register) {
