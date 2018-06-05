@@ -7,7 +7,7 @@ public class ROM {
         this.addresses = data;
     }
 
-    public byte get(byte address) {
+    public byte get(short address) {
         return this.addresses[address];
     }
 }

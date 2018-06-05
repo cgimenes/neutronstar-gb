@@ -25,9 +25,6 @@ public class Registers {
         registers16.put(Register16Kind.DE, new Register16Paired(this.get(Register8Kind.D), this.get(Register8Kind.E)));
         registers16.put(Register16Kind.HL, new Register16Paired(this.get(Register8Kind.H), this.get(Register8Kind.L)));
 
-        // initialize registers
-        this.get(Register16Kind.PC).set((short) 0x100);
-
         // flags
         flags = new Flags(this.get(Register8Kind.F));
     }
