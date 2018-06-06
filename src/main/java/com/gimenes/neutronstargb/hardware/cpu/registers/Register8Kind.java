@@ -1,5 +1,6 @@
 package com.gimenes.neutronstargb.hardware.cpu.registers;
 
+// TODO remover esses kinds
 public enum Register8Kind {
     // accumulator
     A,

@@ -1,5 +1,7 @@
 package com.gimenes.neutronstargb.hardware.cpu.registers;
 
+import com.gimenes.neutronstargb.WordHelper;
+
 public class Register16Paired extends Register16 {
     private final Register8 high;
     private final Register8 low;
@@ -10,7 +12,7 @@ public class Register16Paired extends Register16 {
     }
 
     public short get() {
-        return (short) ((high.get() << 8) | low.get());
+        return WordHelper.wordFromBytes(high.get(), low.get());
     }
 
     public void set(short value) {

@@ -1,15 +1,20 @@
 package com.gimenes.neutronstargb.hardware.memory;
 
+import java.util.Random;
+
 public class RAM extends ROM {
-    public RAM(byte size) {
+    private final Random rand = new Random();
+
+    public RAM(short size) {
         super(new byte[size]);
+        rand.nextBytes(this.addresses);
     }
 
-    public void set(byte[] data) {
+    public void init(byte[] data) {
         System.arraycopy(data, 0, this.addresses, 0, data.length);
     }
 
-    public void set(byte address, byte value) {
+    public void set(short address, byte value) {
         this.addresses[address] = value;
     }
 }

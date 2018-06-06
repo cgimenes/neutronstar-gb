@@ -8,9 +8,9 @@ NeutronStar Gb is a Gameboy emulator written in Java 9. I decided to do it after
 
 - [ ] DMG-CPU
   - [ ] CPU
-    - [ ] Registers
+    - [x] Registers
     - [ ] OpCodes
-    - [ ] Flags
+    - [x] Flags
     - [ ] Stack
   - [ ] PPU (Pixel Processing Unit)
     - [ ] Registers
@@ -26,11 +26,11 @@ NeutronStar Gb is a Gameboy emulator written in Java 9. I decided to do it after
   - [ ] Interrupt Controller
   - [ ] Timer
   - [ ] Memory
-  - [ ] Boot ROM
+  - [x] Boot ROM
   - [ ] Joypad Input
   - [ ] Sound Controller
   - [ ] Bus
-- [ ] RAM
+- [x] RAM
 - [ ] VRAM
   - [ ] Window Map
   - [ ] BG Map
@@ -56,4 +56,5 @@ NeutronStar Gb is a Gameboy emulator written in Java 9. I decided to do it after
 * [Coffee GB](https://github.com/trekawek/coffee-gb/)
 * [Mooneye GB](https://github.com/Gekkio/mooneye-gb)
 * [The Ultimate Game Boy Talk](https://www.youtube.com/watch?v=HyzD8pNlpwI)
-
+* [Imran Nazar: GameBoy Emulation in JavaScript](http://imrannazar.com/GameBoy-Emulation-in-JavaScript)
+* [Gameboy Bootstrap ROM](http://gbdev.gg8.se/wiki/articles/Gameboy_Bootstrap_ROM)
