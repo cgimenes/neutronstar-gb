@@ -1,43 +1,46 @@
 package com.gimenes.neutronstargb.hardware.cpu.registers;
 
 import com.gimenes.neutronstargb.hardware.cpu.flags.Flags;
-import java.util.EnumSet;
-import java.util.HashMap;
 
 public class Registers {
-    private final HashMap<Register8Kind, Register8> registers8;
-    private final HashMap<Register16Kind, Register16> registers16;
-    private final Flags flags;
+    // 8-bit high
+    public Register8 A; // accumulator
+    public Register8 B, D, H;
+    // 8-bit low
+    public Register8 F; // flags
+    public Register8 C, E, L;
+
+    // 16-bit
+    public Register16 SP; // stack pointer
+    public Register16 PC; // program counter
+    // 16-bit paired
+    public Register16 AF, BC, DE, HL;
+
+    // flags
+    public final Flags Flags;
 
     public Registers() {
-        registers8 = new HashMap<>();
-        registers16 = new HashMap<>();
-
         // 8-bit
-        EnumSet.allOf(Register8Kind.class).forEach(kind -> registers8.put(kind, new Register8()));
+        A = new Register8();
+        B = new Register8();
+        D = new Register8();
+        H = new Register8();
+        F = new Register8();
+        C = new Register8();
+        E = new Register8();
+        L = new Register8();
 
         // 16-bit
-        Register16Kind.getAllNotPaired().forEach(kind -> registers16.put(kind, new Register16()));
+        SP = new Register16();
+        PC = new Register16();
 
         // paired 16-bit
-        registers16.put(Register16Kind.AF, new Register16Paired(this.get(Register8Kind.A), this.get(Register8Kind.F)));
-        registers16.put(Register16Kind.BC, new Register16Paired(this.get(Register8Kind.B), this.get(Register8Kind.C)));
-        registers16.put(Register16Kind.DE, new Register16Paired(this.get(Register8Kind.D), this.get(Register8Kind.E)));
-        registers16.put(Register16Kind.HL, new Register16Paired(this.get(Register8Kind.H), this.get(Register8Kind.L)));
+        AF = new Register16Paired(A, F);
+        BC = new Register16Paired(B, C);
+        DE = new Register16Paired(D, E);
+        HL = new Register16Paired(H, L);
 
         // flags
-        flags = new Flags(this.get(Register8Kind.F));
-    }
-
-    public Flags getFlags() {
-        return flags;
-    }
-
-    public Register8 get(Register8Kind register) {
-        return registers8.get(register);
-    }
-
-    public Register16 get(Register16Kind register) {
-        return registers16.get(register);
+        Flags = new Flags(F);
     }
 }
