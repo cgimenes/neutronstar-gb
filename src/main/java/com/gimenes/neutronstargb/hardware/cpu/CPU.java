@@ -33,49 +33,53 @@ public class CPU {
         // Decode the fetched opcode.
         switch (b) {
             case 0x06:
-                LD8(registers.B);
+                LD8(registers.B, fetch());
                 break;
             case 0x0E:
-                LD8(registers.C);
+                LD8(registers.C, fetch());
                 break;
             case 0x16:
-                LD8(registers.D);
+                LD8(registers.D, fetch());
                 break;
             case 0x1E:
-                LD8(registers.E);
+                LD8(registers.E, fetch());
                 break;
             case 0x26:
-                LD8(registers.H);
+                LD8(registers.H, fetch());
                 break;
             case 0x2E:
-                LD8(registers.L);
+                LD8(registers.L, fetch());
+                break;
+            case 0x3E:
+                LD8(registers.A, fetch());
                 break;
             case 0x20:
-                JRcc(FlagKind.Z, (byte) 0x0);
+                JRcc(FlagKind.Z, (byte) 0x0, fetch());
                 break;
             case 0x28:
-                JRcc(FlagKind.Z, (byte) 0x1);
+                JRcc(FlagKind.Z, (byte) 0x1, fetch());
                 break;
             case 0x30:
-                JRcc(FlagKind.C, (byte) 0x0);
+                JRcc(FlagKind.C, (byte) 0x0, fetch());
                 break;
             case 0x38:
-                JRcc(FlagKind.C, (byte) 0x1);
+                JRcc(FlagKind.C, (byte) 0x1, fetch());
                 break;
             case 0x01:
-                LD16(registers.BC);
+                LD16(registers.BC, fetch16());
                 break;
             case 0x11:
-                LD16(registers.DE);
+                LD16(registers.DE, fetch16());
                 break;
             case 0x21:
-                LD16(registers.HL);
+                LD16(registers.HL, fetch16());
                 break;
             case 0x31:
-                LD16(registers.SP);
+                LD16(registers.SP, fetch16());
                 break;
             case 0x32:
                 LDD16n();
+                break;
             case 0x0B:
                 DEC16(registers.BC);
                 break;
@@ -298,10 +302,9 @@ public class CPU {
         }
     }
 
-    private void JRcc(FlagKind flag, byte set) {
-        byte a = fetch();
+    private void JRcc(FlagKind flag, byte set, byte data) {
         if (registers.Flags.get(flag) == set) {
-            registers.PC.set((short) (registers.PC.get() + a));
+            registers.PC.set((short) (registers.PC.get() + data));
         }
     }
 
@@ -330,8 +333,8 @@ public class CPU {
         return BinaryHelper.wordFromBytes(h, l);
     }
 
-    private void LD16(Register16 register) {
-        register.set(fetch16());
+    private void LD16(Register16 register, short data) {
+        register.set(data);
     }
 
     private void XORn(Register8 register) {
@@ -357,7 +360,7 @@ public class CPU {
 
     }
 
-    private void LD8(Register8 register) {
-        register.set(fetch());
+    private void LD8(Register8 register, byte data) {
+        register.set(data);
     }
 }
