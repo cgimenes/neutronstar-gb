@@ -116,11 +116,14 @@ public class CPU {
             case (byte) 0xCB:
                 CB();
                 break;
+            case (byte) 0xE2:
+                LDcA();
+                break;
             default:
                 throw new RuntimeException(String.format(
-                        "OpCode: '%s' - PC: '%s'",
-                        Integer.toHexString(b),
-                        Integer.toHexString(registers.PC.get())));
+                        "OpCode: '%02X' - PC: '%02X'",
+                        b,
+                        registers.PC.get()));
         }
 
         // Fetch any extra data required to resolve the operation including extra opcodes and literals.
@@ -362,5 +365,22 @@ public class CPU {
 
     private void LD8(Register8 register, byte data) {
         register.set(data);
+    }
+
+    private void LDcA() {
+        mmu.set((short) (0xff00 + registers.C.get()), registers.A.get());
+    }
+
+    private void INC(Register8 register) {
+        // TODO Não entendi essa regra
+        if ((register.get() & 0x0f) == 0x0f) {
+            registers.Flags.set(FlagKind.H);
+        }
+        // TODO falta adicionar "& 0xff"?
+        register.set((byte) (register.get() + 0x1));
+        if (register.get() == 0x0) {
+            registers.Flags.set(FlagKind.Z);
+        }
+        registers.Flags.reset(FlagKind.N);
     }
 }
