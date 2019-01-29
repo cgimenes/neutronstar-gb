@@ -4,6 +4,8 @@ NeutronStar Gb is a Gameboy emulator written in Java 9. I decided to do it after
 
 ## TODO
 
+- [ ] Rewrite (C/C++ or Rust)?
+
 ### Components
 
 - [ ] DMG-CPU
