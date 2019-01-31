@@ -52,6 +52,10 @@ NeutronStar Gb is a Gameboy emulator written in Java 9. I decided to do it after
 * [The Cycle-Accurate Game Boy Docs](https://github.com/AntonioND/giibiiadvance/tree/master/docs)
 * [Test ROMs](http://slack.net/~ant/old/gb-tests/)
 * [Pandocs](http://bgb.bircd.org/pandocs.htm)
+* [Imran Nazar: GameBoy Emulation in JavaScript](http://imrannazar.com/GameBoy-Emulation-in-JavaScript)
+* [Adventures in GameBoy Emulation: Part 2 (The CPU) | WornWinter](https://wornwinter.wordpress.com/2015/02/14/adventures-in-gameboy-emulation-part-2-the-cpu/)
+* GB Architecture
+* GB MMU
 
 ## Resources
 
