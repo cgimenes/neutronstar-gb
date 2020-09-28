@@ -1,6 +1,6 @@
 package com.gimenes.neutronstargb.hardware.cpu;
 
-public enum Instruction {
+enum InstructionKind {
     ADC,
     ADD,
     AND,

@@ -1,6 +1,6 @@
 package com.gimenes.neutronstargb.hardware.cpu;
 
-public class Stack {
+class Stack {
     private final java.util.Stack<Byte> stack;
 
     public Stack() {

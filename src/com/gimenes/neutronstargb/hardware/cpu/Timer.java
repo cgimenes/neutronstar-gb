@@ -1,7 +1,7 @@
 package com.gimenes.neutronstargb.hardware.cpu;
 
 // TODO o nome correto é Timer ou Clock?
-public class Timer {
+class Timer {
     // TODO o que significa o m e o t?
     private final byte m;
     private final byte t;

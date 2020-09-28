@@ -2,7 +2,7 @@ package com.gimenes.neutronstargb.hardware.memory;
 
 import java.util.Random;
 
-public class RAM extends ROM {
+class RAM extends ROM {
     private final Random rand = new Random();
 
     public RAM(short size) {
